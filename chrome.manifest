@@ -1,3 +1,3 @@
 content    youraddon          content/
-locale     youraddon en-US    content/locale/en-US/
-locale     youraddon fr       content/locale/fr/
+locale     youraddon en-US    locale/en-US/
+locale     youraddon fr       locale/fr/
