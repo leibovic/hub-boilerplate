@@ -19,3 +19,18 @@ https://developer.mozilla.org/en/Extensions/Firefox_on_Android
 4. Edit `config_build.sh`: If you add any additional files, make sure you add them to `config_build.sh`. See `build.sh` for more details.
 
 5. Run `./build.sh`: This creates the XPI and pushes it to your device if you have adb installed.
+
+## Creating a template using volo
+
+You can use [volo](http://volojs.org/) to quickly bootstrap your add-on from this template.
+
+volo requires Node to run. To install volo:
+
+    npm install -g volo
+
+After installing volo, to create a new directory for your add-on, run:
+
+    volo create youraddon https://github.com/leibovic/hub-boilerplate/archive/master.zip
+
+This will create a template add-on in a `youraddon` directory.
+
