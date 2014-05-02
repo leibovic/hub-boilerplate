@@ -24,7 +24,7 @@ https://developer.mozilla.org/en/Extensions/Firefox_on_Android
 
 You can use [volo](http://volojs.org/) to quickly bootstrap your add-on from this template.
 
-volo requires Node to run. To install volo:
+volo requires [node](http://nodejs.org/) to run. To install volo:
 
     npm install -g volo
 
