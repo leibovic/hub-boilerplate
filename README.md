@@ -2,8 +2,8 @@
 
 This code is a template for building Firefox Hub add-ons for Firefox for Android.
 
-For more information about the Firefox Hub project, please see:
-https://wiki.mozilla.org/Mobile/Projects/Third-party_service_integration_MVP
+For more information about building Hub add-ons, see:
+https://developer.mozilla.org/en-US/Add-ons/Firefox_for_Android/Firefox_Hub_Walkthrough
 
 For more information about building mobile add-ons, please see:
 https://developer.mozilla.org/en/Extensions/Firefox_on_Android
