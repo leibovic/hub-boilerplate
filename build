@@ -16,7 +16,8 @@ zip -r $XPI bootstrap.js \
             chrome.manifest \
             content \
             locale \
-            README.md
+            README.md \
+    -x *.DS_Store*
 
 # Push the add-on to your device to test
 adb push "$XPI" /sdcard/"$XPI" && \
