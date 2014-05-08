@@ -16,9 +16,9 @@ https://developer.mozilla.org/en/Extensions/Firefox_on_Android
 
 3. Edit `chrome.manifest`: Optionally use this to include additional files, including localization files.
 
-4. Edit `config_build.sh`: If you add any additional files, make sure you add them to `config_build.sh`. See `build.sh` for more details.
+4. Edit `build`: Update this file to specify a file name for your XPI, as well which version of Firefox you want to use to test the XPI file.
 
-5. Run `./build.sh`: This creates the XPI and pushes it to your device if you have adb installed.
+5. Run `./build`: This creates an XPI in your source directory and pushes it to your device. You must have [adb](http://developer.android.com/tools/help/adb.html) installed for the push step to work.
 
 ## Using volo
 
