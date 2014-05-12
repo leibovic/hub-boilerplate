@@ -98,11 +98,16 @@ function startup(data, reason) {
   }
 
   // Update data once every hour.
+  // It is okay to call addPeriodicSync every time in order to update the callback.
   HomeProvider.addPeriodicSync(DATASET_ID, 3600, refreshDataset);
 }
 
 function shutdown(data, reason) {
   if (reason == ADDON_UNINSTALL || reason == ADDON_DISABLE) {
+    // Call removePeriodicSync only when uninstalling or disabling,
+    // because we still need periodic sync in other cases.
+    HomeProvider.removePeriodicSync(DATASET_ID);
+
     Home.panels.uninstall(PANEL_ID);
     deleteDataset();
   }
