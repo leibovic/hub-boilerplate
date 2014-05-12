@@ -76,6 +76,11 @@ function deleteDataset() {
   }).then(null, e => Cu.reportError("Error deleting data from HomeProvider: " + e));
 }
 
+// Opens about:home to our new panel.
+function openPanel() {
+  Services.wm.getMostRecentWindow("navigator:browser").BrowserApp.loadURI("about:home?panel=" + PANEL_ID);
+}
+
 /**
  * bootstrap.js API
  * https://developer.mozilla.org/en-US/Add-ons/Bootstrapped_extensions
@@ -95,6 +100,11 @@ function startup(data, reason) {
     case ADDON_DOWNGRADE:
       Home.panels.update(PANEL_ID);
       break;
+  }
+
+  // Open the panel when the add-on is first installed.
+  if (reason == ADDON_INSTALL) {
+    openPanel();    
   }
 
   // Update data once every hour.
