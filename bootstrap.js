@@ -1,11 +1,15 @@
 const { classes: Cc, interfaces: Ci, utils: Cu } = Components;
 
+Cu.import("resource://gre/modules/AddonManager.jsm");
 Cu.import("resource://gre/modules/Home.jsm");
 Cu.import("resource://gre/modules/HomeProvider.jsm");
 Cu.import("resource://gre/modules/Messaging.jsm");
 Cu.import("resource://gre/modules/Services.jsm");
 Cu.import("resource://gre/modules/Task.jsm");
 Cu.import("resource://gre/modules/XPCOMUtils.jsm");
+
+// The add-on ID defined in install.rdf.
+const ADDON_ID = "ADDON.NAME@SOMEDOMAIN.ORG";
 
 // Make these IDs unique, preferably tied to a domain that you own.
 const PANEL_ID = "your.panel@somedomain.org";
@@ -32,7 +36,14 @@ function optionsCallback() {
     views: [{
       type: Home.panels.View.LIST,
       dataset: DATASET_ID
-    }]
+    }],
+    onuninstall: function() {
+      // If your add-on only adds a panel and does nothing else, it is nice to
+      // uninstall the add-on for users if they remove the panel in settings.
+      AddonManager.getAddonByID(ADDON_ID, function(addon) {
+        addon.uninstall();
+      });
+    }
   };
 }
 
