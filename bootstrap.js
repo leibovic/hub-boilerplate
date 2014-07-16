@@ -35,7 +35,9 @@ function optionsCallback() {
     title: Strings.GetStringFromName("title"),
     views: [{
       type: Home.panels.View.LIST,
-      dataset: DATASET_ID
+      dataset: DATASET_ID,
+      // New in Firefox 32 (no-op in Firefox 31+)
+      onrefresh: refreshDataset
     }],
     onuninstall: function() {
       // If your add-on only adds a panel and does nothing else, it is nice to
@@ -74,8 +76,14 @@ function refreshDataset() {
     Task.spawn(function() {
       let items = JSON.parse(response);
       let storage = HomeProvider.getStorage(DATASET_ID);
-      yield storage.deleteAll();
-      yield storage.save(items);
+
+      // Old way to replace data for Firefox 30
+      // yield storage.deleteAll();
+      // yield storage.save(items);
+
+      // New way to replace data for Firefox 31+
+      yield storage.save(items, { replace: true });
+
     }).then(null, e => Cu.reportError("Error refreshing dataset " + DATASET_ID + ": " + e));
   });
 }
