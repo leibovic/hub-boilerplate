@@ -34,3 +34,14 @@ After installing volo, to create a new directory for your add-on, run:
 
 This will create a new directory `youraddon`, which holds all the files for your add-on.
 
+## Additional examples
+
+Here is a list of existing add-ons that may serve as useful examples:
+
+* https://github.com/leibovic/world-cup-feed
+* https://github.com/leibovic/wikipedia-panel
+* https://github.com/leibovic/instagram-panel
+* https://github.com/leibovic/pocket-panel
+* https://github.com/leibovic/vimeo-panel
+* https://github.com/leibovic/catfacts
+* https://github.com/leibovic/fennec_rss
