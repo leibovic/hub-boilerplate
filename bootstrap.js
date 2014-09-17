@@ -45,6 +45,14 @@ function optionsCallback() {
       AddonManager.getAddonByID(ADDON_ID, function(addon) {
         addon.uninstall();
       });
+    },
+    auth: {
+      authenticate: function authenticate() {
+        // … do some stuff to authenticate the user …
+        Home.panels.setAuthenticated(PANEL_ID, true);
+      }, 
+      messageText: "Please log in to see your data",
+      buttonText: "Log in"
     }
   };
 }
